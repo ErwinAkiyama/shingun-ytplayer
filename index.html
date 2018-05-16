@@ -2,10 +2,6 @@
 <body>
 <div id="ytplayer"></div>
 <script type="text/javascript">
- let origin;
- window.addEventListener('message',function(event) {
-    origin = event;
-});
 let tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/player_api";
@@ -13,10 +9,11 @@ let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubePlayerAPIReady () {
- 
-    origin.source.postMessage('getit',origin.origin);
+    window.getYoutubePlayerInstance = function () {
+        return YT.Player('ytplayer');
+    }
 }
- window.getYTPlayerInstance = function () {return new YT.Player('ytplayer');};
+
  
 
  
