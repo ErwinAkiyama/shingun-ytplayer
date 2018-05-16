@@ -12,8 +12,9 @@ var urlParams;
     urlParams = {};
     while (match = search.exec(query))
        urlParams[decode(match[1])] = decode(match[2]);
+    
     document.getElementById('ytplayer').innerHTML = `
         <iframe width="560" height="315" src="https://www.youtube.com/embed/${urlParams['id']}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   `;
-
+})();
 </script>
