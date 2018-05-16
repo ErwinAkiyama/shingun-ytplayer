@@ -10,7 +10,16 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubePlayerAPIReady () {
     window.getYoutubePlayerInstance = function () {
-        let nytp = new YT.Player('ytplayer');
+        let nytp = new YT.Player('ytplayer', {
+            width: '427',
+            height: '240',
+            playerVars: {
+              showinfo: 0,
+              controls: 0,
+              disablekb: 1,
+              modestbranding: 1,
+            }
+        });
         return nytp;
     }
 }
