@@ -1,18 +1,24 @@
 <html>
 <body>
- <div id="ytplayer"></div>
+<div id="ytplayer"></div>
 <script type="text/javascript">
+ window.addEventListener('message',function(event) {
+    origin = event;
+},false);
 let tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/player_api";
 let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-let onReady;
+let origin;
 function onYouTubePlayerAPIReady () {
- window.onPlayerReady = function (callback) {
-    callback(new YT.Player('ytplayer'));
-};
+ window.getInstance = function () {return new YT.Player('ytplayer');};
+    origin.source.postMessage('getit',origin.origin);
 }
+ 
+ 
+
+ 
 </script>
 </body>
 </html>
