@@ -1,20 +1,4 @@
 <div id="ytplayer"></div>
 <script type="text/javascript">
-
-var urlParams;
-(window.onpopstate = function () {
-    var match,
-        pl     = /\+/g,  // Regex for replacing addition symbol with a space
-        search = /([^&=]+)=?([^&]*)/g,
-        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-        query  = window.location.search.substring(1);
-
-    urlParams = {};
-    while (match = search.exec(query))
-       urlParams[decode(match[1])] = decode(match[2]);
-    
-    document.getElementById('ytplayer').innerHTML = `
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${urlParams['id']}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  `;
-})();
+let lord = "me";
 </script>
