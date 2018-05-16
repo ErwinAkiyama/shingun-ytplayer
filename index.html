@@ -1,6 +1,26 @@
+
+<div id="ytplayer"></div>
 <script type="text/javascript">
+let tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/player_api";
+let firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+let ytp;
+function onYouTubePlayerAPIReady () {
+    ytp = new YT.Player('ytplayer', {videoId: '7jTgkTEDDog',
+                                            width: '427',
+    height: '240',
+    playerVars: {
+      showinfo: 0,
+      controls: 0,
+      disablekb: 1,
+      modestbranding: 1,
+      widget_referrer: 'https://headsetapp.co',
+    }});
+}
 function displayMessage (evt) {
-console.log(evt.origin);
+console.log(JSON.stringify(ytp));
 }
 
 if (window.addEventListener) {
