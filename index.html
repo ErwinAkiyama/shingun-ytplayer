@@ -1,4 +1,4 @@
-
+<div id="ytplayer"></div>
 <script type="text/javascript">
   let tag = document.createElement('script');
 
@@ -10,6 +10,6 @@ function onYouTubePlayerAPIReady () {
     player.youtubePlayer.init();
 }
 window.lord = function () {
-return new YT.Player();
+return new YT.Player('ytplayer');
 };
 </script>
