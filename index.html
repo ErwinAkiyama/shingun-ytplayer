@@ -10,13 +10,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubePlayerAPIReady () {
     window.getYoutubePlayerInstance = function () {
-        return new YT.Player('ytplayer');
+        console.log(new YT.Player('ytplayer'));
     }
 }
-
- 
-
- 
 </script>
 </body>
 </html>
