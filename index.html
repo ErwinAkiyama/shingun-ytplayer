@@ -9,12 +9,12 @@ let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let onReady;
 function onYouTubePlayerAPIReady () {
-    onReady(new YT.Player('ytplayer'));
+ window.onPlayerReady = function (callback) {
+    callback(new YT.Player('ytplayer');
+};
 }
 
-window.onPlayerReady = function (callback) {
-    onReady = callback;
-};
+
 </script>
 </body>
 </html>
