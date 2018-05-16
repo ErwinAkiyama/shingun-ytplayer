@@ -1,19 +1,21 @@
 <html>
 <body>
-  <div id="ytplayer"></div>
+ <div id="ytplayer"></div>
 <script type="text/javascript">
-  let tag = document.createElement('script');
+let tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/player_api";
 let firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+let onReady;
 function onYouTubePlayerAPIReady () {
-    window.lord = function (callback) {
-  callback();
+    onReady(new YT.Player('ytplayer'));
 };
 }
 
+window.onPlayerReady = function (callback) {
+    onReady = callback;
+};
 </script>
 </body>
 </html>
